@@ -1,0 +1,50 @@
+// colors
+$white: #f5f7fc;
+$gray: #bebcbc;
+$primary: #3763cb;
+$black: #222222;
+$secondary: #282c34;
+
+$primary-dark: scale-color($primary, $lightness: -20%);
+$primary-light: scale-color($primary, $lightness: 20%);
+
+$secondary-dark: scale-color($secondary, $lightness: -20%);
+$secondary-light: scale-color($secondary, $lightness: 20%);
+
+// gradint effect
+$secondary-gradient: linear-gradient(
+  to bottom,
+  $secondary-dark,
+  $secondary-light
+);
+
+// fonts
+$title-font: "Roboto", "system-ui", "sans-serif";
+$text-font: "Calibri", "Roboto", "Oxygen", "Ubuntu", "Cantarell";
+
+/// Headings
+@for $i from 1 through 6 {
+  h#{7 - $i},
+  .h#{7 - $i} {
+    font-size: calc(2rem + $i * 0.5rem);
+    font-family: $title-font;
+  }
+
+  .p#{7 - $i} {
+    font-size: calc(0.5rem + $i * 0.5rem);
+    font-family: $text-font;
+  }
+}
+
+$spacing: 5px;
+$spacing-0: $spacing * 0;
+$spacing-1: $spacing * 1;
+$spacing-2: $spacing * 2;
+$spacing-3: $spacing * 3;
+$spacing-4: $spacing * 4;
+$spacing-5: $spacing * 5;
+$spacing-6: $spacing * 6;
+$spacing-7: $spacing * 7;
+$spacing-8: $spacing * 8;
+$spacing-9: $spacing * 9;
+$spacing-10: $spacing * 10;

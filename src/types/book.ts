@@ -8,10 +8,10 @@ export interface ReqSearchBook {
 export interface ResSearchBook {
     kind: string;
     totalItems: number;
-    items: Item[];
+    items: Book[];
 }
 
-export interface Item {
+export interface Book {
     kind: Kind;
     id: string;
     etag: string;

@@ -1,0 +1,17 @@
+@import "/src/assets/sass/variables.scss";
+
+.filter {
+  padding: $spacing-2;
+
+  &-label {
+    padding: 0 $spacing-2;
+    font-weight: 600;
+  }
+
+  &-select {
+    padding: $spacing-2;
+    border: none;
+    color: $white;
+    background-color: $secondary;
+  }
+}

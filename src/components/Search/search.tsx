@@ -7,8 +7,8 @@ export default function Search() {
         type="text"
         name="search"
         id="search"
-        className="search-input"
-        placeholder="Search a Book"
+        className="search-input fs-1"
+        placeholder="Search Books"
       />
     </div>
   );

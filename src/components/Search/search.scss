@@ -11,9 +11,10 @@
   }
 
   &-input {
-    margin: 0 $spacing-10;
+    margin: 0;
     padding: $spacing-2 $spacing-10;
-    border-radius: $spacing-5;
+    border-radius: $spacing-6;
     width: 100%;
+    font-weight: 400;
   }
 }

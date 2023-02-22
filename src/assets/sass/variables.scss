@@ -4,6 +4,7 @@ $gray: #bebcbc;
 $primary: #3763cb;
 $black: #222222;
 $secondary: #282c34;
+$link-color: #61dafb;
 
 $primary-dark: scale-color($primary, $lightness: -20%);
 $primary-light: scale-color($primary, $lightness: 20%);
@@ -19,20 +20,17 @@ $secondary-gradient: linear-gradient(
 );
 
 // fonts
-$title-font: "Roboto", "system-ui", "sans-serif";
-$text-font: "Calibri", "Roboto", "Oxygen", "Ubuntu", "Cantarell";
+$font: "Roboto", "system-ui", sans-serif, verdana;
 
 /// Headings
 @for $i from 1 through 6 {
   h#{7 - $i},
   .h#{7 - $i} {
-    font-size: calc(2rem + $i * 0.5rem);
-    font-family: $title-font;
+    font-size: calc($i * 2vmin);
   }
 
-  .p#{7 - $i} {
+  .fs-#{$i} {
     font-size: calc(0.5rem + $i * 0.5rem);
-    font-family: $text-font;
   }
 }
 

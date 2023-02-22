@@ -2,7 +2,7 @@
 
 ## Assignment Overview
 
-You are tasked with building a basic web application that allows users to search for books using the Google Books API. The application should have the following features:
+Build a basic web application that allows users to search for books using the Google Books API. The application should have the following features:
 
 1. A search bar that allows users to enter a query and search for books.
 2. A list of results that displays the title, author, and cover image of each book.
@@ -12,7 +12,7 @@ You are tasked with building a basic web application that allows users to search
 
 ## Technical Requirements
 
-- The application should be built using React.
+- The application should be built using React with Typescript.
 - The application should be a single page app (no reloading).
 - The application should use the Google Books API to search for books and retrieve detailed information about them.
 - The application should be well-structured and easy to understand.

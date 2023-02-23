@@ -6,6 +6,7 @@ import { search } from "../../services/book.service";
 import "./app.scss";
 import { useEffect, useState } from "react";
 import { Book } from "../../types/book";
+import BookList from "../BookList/bookList";
 
 function App() {
   const [sorting, setSorting] = useState("relevance");
@@ -44,7 +45,9 @@ function App() {
           setSorting(sorting);
         }}
       />
-      <div className="app-body">books : {JSON.stringify(books, null, 4)}</div>
+      <div className="app-body">
+        <BookList books={books} />
+      </div>
     </div>
   );
 }

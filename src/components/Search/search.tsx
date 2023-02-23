@@ -19,8 +19,7 @@ export default function Search({ onSearch }: Props) {
 
   return (
     <div className="search">
-      <div className="search-icon"></div>
-      <form onSubmit={handleSubmit}>
+      <form className="search-form" onSubmit={handleSubmit}>
         <input
           type="text"
           name="search"

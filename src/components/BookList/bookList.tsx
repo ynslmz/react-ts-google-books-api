@@ -1,17 +1,17 @@
-import { Book as BK } from "../../types/book";
-import Book from "../BookContainer/bookContainer";
+import { Book } from "../../types/book";
+import BookContainer from "../BookContainer/bookContainer";
 
 import "./bookList.scss";
 
 interface Props {
-  books: BK[];
+  books: Book[];
 }
 export default function BookList({ books }: Props) {
   return (
     <div className="book-list">
       {books.map((bk) => (
-        <Book key={bk.id} book={bk} />
-      ))}{" "}
+        <BookContainer key={bk.id} book={bk} />
+      ))}
     </div>
   );
 }

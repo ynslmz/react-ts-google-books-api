@@ -1,5 +1,33 @@
 @import "./src/assets/sass/variables";
 .book {
   display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
   width: 100%;
+  padding: $spacing-1;
+
+  &-detail {
+    flex-grow: 1;
+    .description {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+
+    &-button {
+      margin: $spacing-3 0;
+      border: 1px solid $link-color;
+      border-radius: $spacing-10;
+      background-color: transparent;
+      color: $white;
+      padding: $spacing-1 $spacing-3;
+      &:hover {
+        background-color: $link-color;
+        transition: all ease-in 0.2s;
+        color: $secondary-light;
+      }
+    }
+  }
 }

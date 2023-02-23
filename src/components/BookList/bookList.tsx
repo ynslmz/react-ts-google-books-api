@@ -1,5 +1,5 @@
 import { Book as BK } from "../../types/book";
-import Book from "../Book/book";
+import Book from "../BookContainer/bookContainer";
 
 import "./bookList.scss";
 

@@ -32,7 +32,7 @@ $font: "Roboto", "system-ui", sans-serif, verdana;
   }
 
   .fs-#{$i} {
-    font-size: calc(0.5rem + $i * 0.5rem);
+    font-size: calc(0.3rem + $i * 0.5rem);
   }
 }
 

@@ -6,7 +6,7 @@ interface Props {
   children?: ReactNode | undefined;
 }
 
-export function Modal({ isOpen, onClose, children }: Props) {
+export default function Modal({ isOpen, onClose, children }: Props) {
   // Only render the modal if it's open
   if (!isOpen) {
     return null;
@@ -16,16 +16,19 @@ export function Modal({ isOpen, onClose, children }: Props) {
   if (typeof document !== "undefined") {
     if (isOpen) {
       document.body.classList.add("no-scroll");
-    } else {
-      document.body.classList.remove("no-scroll");
     }
+  }
+
+  function handleClose() {
+    document.body.classList.remove("no-scroll");
+    onClose();
   }
 
   return (
     <div className={`modal ${isOpen ? "visible" : ""}`}>
-      <div className="modal-backdrop" onClick={onClose}></div>
+      <div className="modal-backdrop" onClick={handleClose}></div>
       <div className="modal-content">
-        <button className="modal-close" onClick={onClose}>
+        <button className="modal-close" onClick={handleClose}>
           &times;
         </button>
         {children}
@@ -33,5 +36,3 @@ export function Modal({ isOpen, onClose, children }: Props) {
     </div>
   );
 }
-
-export default Modal;

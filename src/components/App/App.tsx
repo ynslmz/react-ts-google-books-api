@@ -9,6 +9,8 @@ import { Book } from "../../types/book";
 import BookList from "../BookList/bookList";
 import { Paginator } from "../Paginator/paginator";
 import { Loading } from "../Loading/loading";
+import Modal from "../Modal/modal";
+import ModalContext from "../../Context/modalContext";
 
 function App() {
   const [loading, SetLoading] = useState(false);
@@ -17,6 +19,8 @@ function App() {
   const [books, setBooks] = useState<Book[]>([]);
   const [totalItems, setTotalItems] = useState(0);
   const [startIndex, setStartIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalData, setModalData] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -55,26 +59,44 @@ function App() {
     setStartIndex(0);
   }
 
+  function handleSettingModalData(data: any): void {
+    console.log("handleSettingModalData", data);
+    setModalData(data);
+    setIsModalOpen(true);
+  }
+
   return (
     <div className="app">
-      <Header small={books.length > 0} />
-      <Search onSearch={handleSearch} />
-      <FilterBar onSortChange={handleSorting} />
-      {!loading && (
-        <div className="app-body">
-          <BookList books={books} />
-          <div className="pagination">
-            {totalItems > 0 && (
-              <Paginator
-                totalItems={totalItems}
-                startIndex={startIndex}
-                onPageChange={handlePageChange}
-              />
-            )}
+      <ModalContext.Provider value={handleSettingModalData}>
+        <Header small={books.length > 0} />
+        <Search onSearch={handleSearch} />
+        <FilterBar onSortChange={handleSorting} />
+        {!loading && (
+          <div className="app-body">
+            <BookList books={books} />
+            <div className="pagination">
+              {totalItems > 0 && (
+                <Paginator
+                  totalItems={totalItems}
+                  startIndex={startIndex}
+                  onPageChange={handlePageChange}
+                />
+              )}
+            </div>
           </div>
-        </div>
-      )}
-      {loading && <Loading />}
+        )}
+        {loading && <Loading />}
+
+        <Modal
+          isOpen={isModalOpen}
+          onClose={() => {
+            setIsModalOpen(false);
+            setModalData(null);
+          }}
+        >
+          <div>{JSON.stringify(modalData)}</div>
+        </Modal>
+      </ModalContext.Provider>
     </div>
   );
 }

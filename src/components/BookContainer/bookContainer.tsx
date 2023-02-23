@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import ModalContext from "../../Context/modalContext";
 import { Book } from "../../types/book";
 import { BookImage } from "../BookImage/bookImage";
 import "./bookContainer.scss";
@@ -6,8 +8,10 @@ interface Props {
 }
 
 export default function BookContainer({ book }: Props) {
+  const setModalData = useContext(ModalContext);
+
   function handleShowMoreDetail() {
-    console.log(`Show modal for ${book.id}`);
+    setModalData(book);
   }
 
   return (

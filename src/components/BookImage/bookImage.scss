@@ -3,10 +3,17 @@
   color: #9aa0a6;
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 140px;
   min-width: 100px;
   width: 100px;
   margin: $spacing-1 $spacing-2;
+
+  &.big {
+    width: 200px;
+    min-width: 200px;
+    height: 280px;
+  }
 
   img {
     width: 100%;

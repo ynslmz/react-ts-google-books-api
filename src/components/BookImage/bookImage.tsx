@@ -2,9 +2,10 @@ import { ImageLinks } from "../../types/book";
 import "./bookImage.scss";
 interface Props {
   imageLinks: ImageLinks | null;
+  size?: string;
 }
 
-export function BookImage({ imageLinks }: Props) {
+export function BookImage({ imageLinks, size = "" }: Props) {
   const imgLinks: ImageLinks = {
     ...{
       smallThumbnail: "",
@@ -13,10 +14,13 @@ export function BookImage({ imageLinks }: Props) {
     ...imageLinks,
   };
 
-  const bookImageUrl = imgLinks.smallThumbnail || imgLinks.thumbnail || "";
+  const bookImageUrl =
+    (size === "big" ? imgLinks.thumbnail : imgLinks.smallThumbnail) || "";
   const noImage = "No image available";
   return (
-    <div className={`book-img ${bookImageUrl.length > 0 ? "" : "no-img"}`}>
+    <div
+      className={`book-img ${bookImageUrl.length > 0 ? "" : "no-img"} ${size}`}
+    >
       {bookImageUrl.length > 0 ? (
         <img src={bookImageUrl} alt={noImage} />
       ) : (

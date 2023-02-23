@@ -6,7 +6,11 @@ interface Props {
   onPageChange: (newIndex: number) => void;
 }
 
-export function Paginator({ totalItems, startIndex, onPageChange }: Props) {
+export default function Paginator({
+  totalItems,
+  startIndex,
+  onPageChange,
+}: Props) {
   const pages = Array(Math.floor(totalItems / 10) + 1).fill("");
   const currentPage = Math.floor(startIndex / 10);
 

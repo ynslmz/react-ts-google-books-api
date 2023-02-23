@@ -1,16 +1,17 @@
 import Header from "../Header/header";
 import Search from "../Search/search";
 import FilterBar from "../FilterBar/filterBar";
+import BookList from "../BookList/bookList";
+import Modal from "../Modal/modal";
+import BookDetail from "../BookDetail/bookDetail";
+import Paginator from "../Paginator/paginator";
 import { search } from "../../services/book.service";
-
-import "./app.scss";
 import { useEffect, useState } from "react";
 import { Book } from "../../types/book";
-import BookList from "../BookList/bookList";
-import { Paginator } from "../Paginator/paginator";
 import { Loading } from "../Loading/loading";
-import Modal from "../Modal/modal";
 import ModalContext from "../../Context/modalContext";
+
+import "./app.scss";
 
 function App() {
   const [loading, SetLoading] = useState(false);
@@ -20,7 +21,7 @@ function App() {
   const [totalItems, setTotalItems] = useState(0);
   const [startIndex, setStartIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalData, setModalData] = useState(null);
+  const [modalData, setModalData] = useState<Book | null>(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -94,7 +95,7 @@ function App() {
             setModalData(null);
           }}
         >
-          <div>{JSON.stringify(modalData)}</div>
+          <BookDetail book={modalData as Book} />
         </Modal>
       </ModalContext.Provider>
     </div>

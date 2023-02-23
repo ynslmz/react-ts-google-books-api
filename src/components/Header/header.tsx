@@ -1,9 +1,12 @@
 import "./header.scss";
 
-export default function Header() {
+interface Props {
+  small: boolean;
+}
+export default function Header({ small }: Props) {
   return (
-    <header className="app-header">
-      <h1 className="h3">Google Books</h1>
+    <header className={`app-header ${small ? "small" : ""}`}>
+      <h1 className="h4">Google Books</h1>
     </header>
   );
 }

@@ -1,1 +1,15 @@
 @import "/src/assets/sass/variables.scss";
+
+.app-header {
+  transition: ease-out all 1s;
+  &.small {
+    align-self: flex-start;
+    margin: $spacing-1;
+    transition: ease-out all 1s;
+    width: 100%;
+    h1 {
+      transition: ease-out all 1s;
+      font-size: 2.5vmin;
+    }
+  }
+}

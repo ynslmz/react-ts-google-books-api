@@ -33,7 +33,7 @@ function App() {
 
   return (
     <div className="app">
-      <Header />
+      <Header small={books.length > 0} />
       <Search
         onSearch={(searchText) => {
           setQuery(searchText);
@@ -44,9 +44,7 @@ function App() {
           setSorting(sorting);
         }}
       />
-      <div className="app-body">
-        books : <pre>{JSON.stringify(books, null, 4)}</pre>
-      </div>
+      <div className="app-body">books : {JSON.stringify(books, null, 4)}</div>
     </div>
   );
 }

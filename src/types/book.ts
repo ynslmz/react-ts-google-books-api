@@ -1,7 +1,7 @@
 export interface ReqSearchBook {
     query: string;
-    startIndex: string;
-    pageSize: string;
+    startIndex: number;
+    pageSize: number;
     orderBy: string;
 }
 

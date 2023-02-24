@@ -22,6 +22,7 @@ function App() {
   const [startIndex, setStartIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalData, setModalData] = useState<Book | null>(null);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -33,7 +34,11 @@ function App() {
             startIndex: startIndex,
             orderBy: sorting,
             pageSize: 10,
+          }).catch((err) => {
+            setError(true);
+            throw err;
           });
+          setError(false);
           setBooks(!!response.items ? response.items : []);
           !!response.totalItems && setTotalItems(response.totalItems);
         }
@@ -74,7 +79,11 @@ function App() {
         <FilterBar onSortChange={handleSorting} />
         {!loading && (
           <div className="app-body">
-            <BookList books={books} />
+            {error ? (
+              <p className="error h6">Something went wrong...</p>
+            ) : (
+              <BookList books={books} />
+            )}
             <div className="pagination">
               {totalItems > 0 && (
                 <Paginator
